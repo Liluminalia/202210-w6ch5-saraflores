@@ -1,10 +1,5 @@
 export type ProtoMilk = {
-    brand: string;
-    kind: string;
     price: number;
-    selected: boolean;
-    description: string;
-    img: string;
 };
 export type Milk = {
     id: number;

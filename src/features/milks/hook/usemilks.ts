@@ -5,7 +5,7 @@ import { ProtoMilk, Milk } from '../types/milk';
 import * as ac from '../reducer/action.creators';
 import { MilkRepository } from '../services/milk.repository';
 
-export const useTasks = () => {
+export const useMilks = () => {
     const milks = useSelector((state: rootState) => state.milks);
     const dispatcher = useDispatch();
     const repositoryMilk = useMemo(() => new MilkRepository(), []);
