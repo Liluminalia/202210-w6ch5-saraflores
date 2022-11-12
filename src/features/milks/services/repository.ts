@@ -1,7 +1,7 @@
 export interface Repository<T> {
-    getAll: () => Promise<Array<T>>;
-    get?: (id: number) => Promise<T>;
-    create: (item: Partial<T>) => Promise<T>;
-    update: (item: Partial<T>) => Promise<T>;
-    delete: (id: number) => Promise<void>;
+    getAllMilks: () => Promise<Array<T>>;
+    getMilk?: (id: number) => Promise<T>;
+    createMilk: (item: Partial<T>) => Promise<T>;
+    updateMilk: (item: Partial<T>) => Promise<T>;
+    deleteMilk: (id: number) => Promise<void>;
 }
