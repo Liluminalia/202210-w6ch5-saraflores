@@ -1,4 +1,4 @@
-export interface Repository<T> {
+export interface RepositoryMilks<T> {
     getAllMilks: () => Promise<Array<T>>;
     getMilk?: (id: number) => Promise<T>;
     createMilk: (item: Partial<T>) => Promise<T>;

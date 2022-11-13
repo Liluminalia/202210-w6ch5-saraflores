@@ -1,13 +1,13 @@
-import { MilkModel } from '../types/milk';
-import { MilkRepository } from './milk.repository';
+import { CookieModel } from '../types/cookie';
+import { CookieRepository } from './cookie.repository';
 
-describe('Given MilkRepository Service', () => {
+describe('Given CookieRepository Service', () => {
     describe('When we instantiate it', () => {
-        let service: MilkRepository;
+        let service: CookieRepository;
         beforeEach(() => {
-            service = new MilkRepository();
+            service = new CookieRepository();
         });
-        test('Then if we use service.error(), it should throw an error', () => {
+        test('Then if i use service.error(), it should return an error', () => {
             const error = service.createError(
                 new Response('Error', {
                     status: 400,
@@ -19,54 +19,54 @@ describe('Given MilkRepository Service', () => {
             result.name = 'HTTPError';
             expect(error).toEqual(result);
         });
-        test(`Then if I use service.getAllMilks() 
-            it should return a Promise of an Array of Milk`, async () => {
+        test(`Then if I use service.getAllCookies() 
+            it should return a Promise of an Array of cookie`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
                 json: jest.fn().mockResolvedValue([]),
             });
-            const result = await service.getAllMilks();
+            const result = await service.getAllCookies();
             expect(fetch).toHaveBeenCalled();
             expect(result).toEqual([]);
         });
-        test(`Then when something is not ok, if I use service.getAllMilks() it should throw an error`, async () => {
+        test(`Then when something is not ok, if I use service.getAllCookies() it should throw an error`, async () => {
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 status: 400,
                 statusText: 'error',
             });
-            const expectedResult = await service.getAllMilks();
+            const expectedResult = await service.getAllCookies();
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
             expect(expectedResult).toBe(result.toString());
         });
         test(`Then if I use service.createMilk()
                 it should return a Promise of the created milk`, async () => {
-            const mockMilk = new MilkModel('', '', 0, '', '');
+            const mockCookie = new CookieModel('', '', 0, '', '');
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue(mockMilk),
+                json: jest.fn().mockResolvedValue(mockCookie),
             });
-            const result = await service.createMilk(mockMilk);
+            const result = await service.createCookie(mockCookie);
             expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual(mockMilk);
+            expect(result).toEqual(mockCookie);
         });
-        test(`Then when something is not ok, if I use service.createMilk() it should throw an error`, async () => {
-            const mockMilk = new MilkModel('', '', 0, '', '');
+        test(`Then when something is not ok, if I use service.createCookie() it should throw an error`, async () => {
+            const mockCookie = new CookieModel('', '', 0, '', '');
 
             global.fetch = jest.fn().mockResolvedValue({
                 ok: false,
                 status: 400,
                 statusText: 'error',
             });
-            const expectedResult = await service.createMilk(mockMilk);
+            const expectedResult = await service.createCookie(mockCookie);
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
             expect(expectedResult).toBe(result.toString());
         });
 
-        test('Then if I use service.deleteMilk() it should return a Promise of an Array of milk', async () => {
-            const milkMock = {
+        test('Then if I use service.deleteCookie() it should return a Promise of an Array of cookie', async () => {
+            const cookieMock = {
                 id: 2,
                 brand: 'string',
                 kind: '',
@@ -77,14 +77,14 @@ describe('Given MilkRepository Service', () => {
             };
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue(milkMock),
+                json: jest.fn().mockResolvedValue(cookieMock),
             });
-            const result = await service.deleteMilk(milkMock.id);
+            const result = await service.deleteCookie(cookieMock.id);
             expect(fetch).toHaveBeenCalled();
             expect(result).toBeUndefined();
         });
-        test(`Then when something is not ok, if I use service.deleteMilk() it should throw an error`, async () => {
-            const milkMock = {
+        test(`Then when something is not ok, if I use service.deleteCookie() it should throw an error`, async () => {
+            const cookieMock = {
                 id: 2,
                 brand: 'string',
                 kind: '',
@@ -98,23 +98,23 @@ describe('Given MilkRepository Service', () => {
                 status: 400,
                 statusText: 'error',
             });
-            const expectedResult = await service.deleteMilk(milkMock.id);
+            const expectedResult = await service.deleteCookie(cookieMock.id);
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
             expect(expectedResult).toBe(result.toString());
         });
 
-        test('Then if I use service.updateMilk() it should return a Promise of an Array of milk', async () => {
-            const mockMilk = new MilkModel('', '', 0, '', '');
+        test('Then if I use service.updateCookie() it should return a Promise of an Array of cookie', async () => {
+            const cookieMock = new CookieModel('', '', 0, '', '');
             global.fetch = jest.fn().mockResolvedValue({
                 ok: true,
-                json: jest.fn().mockResolvedValue([mockMilk]),
+                json: jest.fn().mockResolvedValue([cookieMock]),
             });
-            const result = await service.updateMilk({ price: 5 });
+            const result = await service.updateCookie({ price: 5 });
             expect(fetch).toHaveBeenCalled();
-            expect(result).toEqual([mockMilk]);
+            expect(result).toEqual([cookieMock]);
         });
-        test(`Then when something is not ok, if I use service.updateMilk() it should throw an error`, async () => {
+        test(`Then when something is not ok, if I use service.updateCookie() it should throw an error`, async () => {
             const partialMock = {
                 price: 4,
             };
@@ -123,7 +123,7 @@ describe('Given MilkRepository Service', () => {
                 status: 400,
                 statusText: 'error',
             });
-            const expectedResult = await service.updateMilk(partialMock);
+            const expectedResult = await service.updateCookie(partialMock);
             const result = new Error('Error 400: error');
             result.name = 'HTTPError';
             expect(expectedResult).toBe(result.toString());

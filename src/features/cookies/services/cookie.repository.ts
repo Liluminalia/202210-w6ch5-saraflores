@@ -1,11 +1,11 @@
-import { Milk } from '../types/milk';
-import { RepositoryMilks } from './repository';
+import { Cookie } from '../types/cookie';
+import { RepositoryCookie } from './repository';
 
-export class MilkRepository implements RepositoryMilks<Milk> {
+export class CookieRepository implements RepositoryCookie<Cookie> {
     url: string;
     constructor(url = '') {
         this.url =
-            'https://202211w6ch1saramireyapatricia-production.up.railway.app/milks';
+            'https://202211w6ch1saramireyapatricia-production.up.railway.app/cookies';
     }
 
     createError(response: Response) {
@@ -15,7 +15,7 @@ export class MilkRepository implements RepositoryMilks<Milk> {
         return error;
     }
 
-    getAllMilks(): Promise<Array<Milk>> {
+    getAllCookies(): Promise<Array<Cookie>> {
         return fetch(this.url)
             .then((response) => {
                 if (response.ok) return response.json();
@@ -26,10 +26,10 @@ export class MilkRepository implements RepositoryMilks<Milk> {
             });
     }
 
-    createMilk(milk: Partial<Milk>): Promise<Milk> {
+    createCookie(cookie: Partial<Cookie>): Promise<Cookie> {
         return fetch(this.url, {
             method: 'POST',
-            body: JSON.stringify(milk),
+            body: JSON.stringify(cookie),
             headers: {
                 'content-type': 'application/json',
             },
@@ -43,7 +43,7 @@ export class MilkRepository implements RepositoryMilks<Milk> {
             });
     }
 
-    deleteMilk(id: number): Promise<void> {
+    deleteCookie(id: number): Promise<void> {
         return fetch(`${this.url}/${id}`, {
             method: 'DELETE',
         })
@@ -55,10 +55,10 @@ export class MilkRepository implements RepositoryMilks<Milk> {
             });
     }
 
-    updateMilk(partialMilk: Partial<Milk>): Promise<Milk> {
-        return fetch(`${this.url}/${partialMilk.id}`, {
+    updateCookie(partialCookie: Partial<Cookie>): Promise<Cookie> {
+        return fetch(`${this.url}/${partialCookie.id}`, {
             method: 'PATCH',
-            body: JSON.stringify(partialMilk),
+            body: JSON.stringify(partialCookie),
             headers: {
                 'content-type': 'application/json',
             },
