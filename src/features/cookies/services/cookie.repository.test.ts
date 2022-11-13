@@ -1,7 +1,7 @@
 import { CookieModel } from '../types/cookie';
 import { CookieRepository } from './cookie.repository';
 
-describe('Given MilkRepository Service', () => {
+describe('Given CookieRepository Service', () => {
     describe('When we instantiate it', () => {
         let service: CookieRepository;
         beforeEach(() => {
