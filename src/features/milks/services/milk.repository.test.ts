@@ -7,7 +7,7 @@ describe('Given MilkRepository Service', () => {
         beforeEach(() => {
             service = new MilkRepository();
         });
-        test('Then if i use service.error(), it should return an error', () => {
+        test('Then if we use service.error(), it should throw an error', () => {
             const error = service.createError(
                 new Response('Error', {
                     status: 400,
