@@ -1,9 +1,11 @@
-import React from 'react';
+import { MilkDetails } from '../../../../features/milks/components/details/detail.milk';
 
 function DetailsPage() {
     return (
-        <main className="main">
-            <div>detalles</div>
+        <main>
+            <div>
+                <MilkDetails />
+            </div>
         </main>
     );
 }

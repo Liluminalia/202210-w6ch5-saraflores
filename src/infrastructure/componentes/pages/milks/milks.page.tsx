@@ -5,7 +5,7 @@ function MilksPage() {
     const { milks } = useMilks();
 
     return (
-        <main className="main">
+        <main>
             <MilksList item={milks}></MilksList>
         </main>
     );
