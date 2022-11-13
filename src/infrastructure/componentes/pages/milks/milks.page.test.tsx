@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
+import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
+import { appStore } from '../../../store/store';
 import MilksPage from './milks.page';
 
 describe('Given Milks page', () => {
@@ -9,7 +11,9 @@ describe('Given Milks page', () => {
             render(
                 <>
                     <Router>
-                        <MilksPage />
+                        <Provider store={appStore}>
+                            <MilksPage />
+                        </Provider>
                     </Router>
                 </>
             );

@@ -5,7 +5,7 @@ export class MilkRepository implements RepositoryMilks<Milk> {
     url: string;
     constructor(url = '') {
         this.url =
-            'https://202211w6ch1saramireyapatricia-production.up.railway.app/milks';
+            'https://202211w6ch1saramireyapatricia-production.up.railway.app/milk';
     }
 
     createError(response: Response) {
