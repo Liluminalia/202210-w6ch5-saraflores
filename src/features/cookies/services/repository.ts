@@ -1,4 +1,4 @@
-export interface Repository<T> {
+export interface RepositoryCookie<T> {
     getAllCookies: () => Promise<Array<T>>;
     getCookie?: (id: number) => Promise<T>;
     createCookie: (item: Partial<T>) => Promise<T>;

@@ -1,7 +1,7 @@
 import { Milk } from '../types/milk';
-import { Repository } from './repository';
+import { RepositoryMilks } from './repository';
 
-export class MilkRepository implements Repository<Milk> {
+export class MilkRepository implements RepositoryMilks<Milk> {
     url: string;
     constructor(url = '') {
         this.url =

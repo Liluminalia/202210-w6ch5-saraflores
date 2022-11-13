@@ -1,7 +1,7 @@
 import { Cookie } from '../types/cookie';
-import { Repository } from './repository';
+import { RepositoryCookie } from './repository';
 
-export class CookieRepository implements Repository<Cookie> {
+export class CookieRepository implements RepositoryCookie<Cookie> {
     url: string;
     constructor(url = '') {
         this.url =
