@@ -13,15 +13,13 @@ export const useCookies = () => {
     useEffect(() => {
         repositoryCookie
             .getAllCookies()
-            .then((cookies) => dispatcher(ac.loadActionCreator(cookies)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((cookies) => dispatcher(ac.loadActionCreator(cookies)));
     }, [repositoryCookie, dispatcher]);
 
     const handleAdd = (newCookie: ProtoCookie) => {
         repositoryCookie
             .createCookie(newCookie)
-            .then((cookie: Cookie) => dispatcher(ac.addActionCreator(cookie)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((cookie: Cookie) => dispatcher(ac.addActionCreator(cookie)));
     };
 
     const handleUpdate = (updateCookie: Partial<Cookie>) => {
@@ -29,15 +27,13 @@ export const useCookies = () => {
             .updateCookie(updateCookie)
             .then((cookie: Cookie) =>
                 dispatcher(ac.updateActionCreator(cookie))
-            )
-            .catch((error: Error) => console.log(error.name, error.message));
+            );
     };
 
     const handleDelete = (cookie: Cookie) => {
         repositoryCookie
             .deleteCookie(cookie.id)
-            .then(() => dispatcher(ac.deleteActionCreator(cookie)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then(() => dispatcher(ac.deleteActionCreator(cookie)));
     };
 
     return {

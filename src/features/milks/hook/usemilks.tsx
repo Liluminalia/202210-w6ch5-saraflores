@@ -13,29 +13,25 @@ export const useMilks = () => {
     useEffect(() => {
         repositoryMilk
             .getAllMilks()
-            .then((milks) => dispatcher(ac.loadActionCreator(milks)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((milks) => dispatcher(ac.loadActionCreator(milks)));
     }, [repositoryMilk, dispatcher]);
 
     const handleAdd = (newMilk: ProtoMilk) => {
         repositoryMilk
             .createMilk(newMilk)
-            .then((milk: Milk) => dispatcher(ac.addActionCreator(milk)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((milk: Milk) => dispatcher(ac.addActionCreator(milk)));
     };
 
     const handleUpdate = (updateMilk: Partial<Milk>) => {
         repositoryMilk
             .updateMilk(updateMilk)
-            .then((milk: Milk) => dispatcher(ac.updateActionCreator(milk)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((milk: Milk) => dispatcher(ac.updateActionCreator(milk)));
     };
 
     const handleDelete = (milk: Milk) => {
         repositoryMilk
             .deleteMilk(milk.id)
-            .then(() => dispatcher(ac.deleteActionCreator(milk)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then(() => dispatcher(ac.deleteActionCreator(milk)));
     };
 
     return {
