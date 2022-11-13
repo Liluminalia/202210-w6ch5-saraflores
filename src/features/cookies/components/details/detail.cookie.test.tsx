@@ -1,15 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import { MemoryRouter as Router } from 'react-router-dom';
-import DetailsPage from './details.page';
+import { CookieDetails } from './detail.cookie';
 
-describe('Given Details page', () => {
-    describe('When we render the page', () => {
+describe('Given details component', () => {
+    describe('When we render the component', () => {
         test('Then it should display "PVP"', () => {
             render(
                 <>
                     <Router>
-                        <DetailsPage />
+                        <CookieDetails />
                     </Router>
                 </>
             );

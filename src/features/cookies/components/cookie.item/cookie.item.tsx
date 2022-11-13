@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Milk } from '../../types/milk';
+import { Cookie } from '../../../cookies/types/cookie';
 
-export function MilkItem({ item }: { item: Milk }) {
+export function CookieItem({ item }: { item: Cookie }) {
     return (
         <>
             <div>
